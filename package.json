@@ -11,7 +11,6 @@
     "vonic": "^1.1.2"
   },
   "devDependencies": {
-    "axios": "^0.16.1",
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
     "babel-plugin-transform-runtime": "^6.0.0",
