@@ -7,7 +7,7 @@ import routes from './common/router.config'
 import store from './common/store'
 // 全局变量相关
 import _Global_ from './common/variables'
-import _Axios_ from 'axios'
+import _Axios_ from './common/http' // 使用添加拦截器后的axios
 // 挂载全局变量
 Vue.prototype.GLOBAL = _Global_;
 Vue.prototype.axios = _Axios_;

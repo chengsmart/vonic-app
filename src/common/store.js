@@ -7,13 +7,7 @@
 
 import Vuex from 'vuex'
 import Vue from 'vue'
-
-const types = {
-    LOGIN:'login',
-    LOGOUT:'logout',
-    TITLE:'title'
-};
-
+import * as types from '../common/types'
 Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
