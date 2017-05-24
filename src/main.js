@@ -10,10 +10,12 @@ import TabBarList from './views/index/List.vue'
 import TabBarUser from './views/index/User.vue'
 import Login from './views/Login.vue'
 
-import _global_ from './common/variables'
+import _Global_ from './common/variables'
+import _Axios_ from 'axios'
 
 // 全局变量
-Vue.prototype.GLOBAL = _global_;
+Vue.prototype.GLOBAL = _Global_;
+Vue.prototype.axios = _Axios_;
 
 // Routes
 const routes = {

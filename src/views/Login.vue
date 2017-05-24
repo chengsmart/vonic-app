@@ -18,7 +18,6 @@
     </div>
 </template>
 <script>
-    import axios from 'axios'
     export default {
         data() {
             return {
@@ -28,7 +27,7 @@
         },
         methods:{
             login:function () {
-                axios({
+                this.axios({
                     method: 'post',
                     url: this.GLOBAL.rest.login,
                     data:{
