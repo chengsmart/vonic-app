@@ -4,6 +4,7 @@ import FastClick from 'fastclick'
 
 // Routes
 import routes from './common/router.config'
+import store from './common/store'
 // 全局变量相关
 import _Global_ from './common/variables'
 import _Axios_ from 'axios'
@@ -11,11 +12,12 @@ import _Axios_ from 'axios'
 Vue.prototype.GLOBAL = _Global_;
 Vue.prototype.axios = _Axios_;
 
-
 const beforeEach = (t) => {
     // 判断是否需要权限
     if(t.to.meta && t.to.meta.requireAuth){
-        //TODO 在session中查看token
+        if (store.state.token) {  // 通过vuex state获取当前的token是否存在
+            t.next();
+        }
         t.redirect({
             path:'/login'
         })
@@ -40,7 +42,7 @@ const beforeEach = (t) => {
 Vonic.app.setConfig('beforeEach',beforeEach)
 // Vonic.app.setConfig('afterEach', afterEach)
 
-Vue.use(Vonic.app, {routes: routes, defaultRouteUrl: '/index/home'});
+Vue.use(Vonic.app, {routes: routes, defaultRouteUrl: '/index/home',store});
 
 // 300ms 快速点击Hack
 FastClick.attach(document.body);
