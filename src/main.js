@@ -2,56 +2,15 @@ import Vue from 'vue'
 import Vonic from 'vonic'
 import FastClick from 'fastclick'
 
-// Page Components
-import Index from './views/Index.vue'
-import TabBarHome from './views/index/Home.vue'
-import TabBarCart from './views/index/Cart.vue'
-import TabBarList from './views/index/List.vue'
-import TabBarUser from './views/index/User.vue'
-import Login from './views/Login.vue'
-
+// Routes
+import routes from './common/router.config'
+// 全局变量相关
 import _Global_ from './common/variables'
 import _Axios_ from 'axios'
-
-// 全局变量
+// 挂载全局变量
 Vue.prototype.GLOBAL = _Global_;
 Vue.prototype.axios = _Axios_;
 
-// Routes
-const routes = {
-
-    '/index': {
-        component: Index,
-        subRoutes: {
-            '/home': {
-                component: TabBarHome,
-                name:'home'
-            },
-            '/list': {
-                component: TabBarList,
-                name:'list'
-            },
-            '/cart': {
-                component: TabBarCart,
-                meta: {
-                    requireAuth: true,
-                },
-                name:'cart'
-            },
-            '/user': {
-                component: TabBarUser,
-                meta: {
-                    requireAuth: true,
-                },
-                name:'user'
-            }
-        }
-    },
-    '/login': {
-        component: Login,
-        name:'login'
-    },
-};
 
 const beforeEach = (t) => {
     // 判断是否需要权限
