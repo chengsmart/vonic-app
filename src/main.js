@@ -25,6 +25,7 @@ const beforeEach = (t) => {
         t.next()
     }
 }
+
 /*const afterEach = (t) => {
     const to = t.to.path
     const from = t.from.path
