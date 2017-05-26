@@ -6,8 +6,8 @@
  */
 
 import axios from 'axios'
-import store from '../common/store'
-import * as types from '../common/types'
+import store from '../store/store'
+import * as types from '../store/types'
 import router from '../common/router.config'
 import global from '../common/variables'
 

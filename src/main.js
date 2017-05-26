@@ -4,7 +4,7 @@ import FastClick from 'fastclick'
 
 // Routes
 import routes from './common/router.config'
-import store from './common/store'
+import store from './store/store'
 // 全局变量相关
 import _Global_ from './common/variables'
 import _Axios_ from './common/http' // 使用添加拦截器后的axios
