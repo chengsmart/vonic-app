@@ -50,7 +50,10 @@
                         console.log(response);
                         $toast.show('登录用户' + response.data.loginName + '，请打开F12查看')
 //                      $router.go({ path: '/about' })
-                    });
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
             }
         }
     }

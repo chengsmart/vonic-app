@@ -8,7 +8,6 @@
 import axios from 'axios'
 import store from '../store/store'
 import * as types from '../store/types'
-import router from '../common/router.config'
 import global from '../common/variables'
 
 // axios 配置
@@ -34,6 +33,7 @@ axios.interceptors.response.use(
     },
     error => {
         if (error.response) {
+            console.log(error.response);
             switch (error.response.status) {
                 case 401:
                     // 401 清除token信息
@@ -41,8 +41,8 @@ axios.interceptors.response.use(
                     // 登录页面提示登录失败，其他页面跳转到登录页面
                     if($router._currentRoute.path === '/login'){
                         $toast.show('登录失败，请检查用户名密码');
-                        return;
                     }else{
+                        console.log(1);
                         // TODO 传入当前页面的路由，进行跳转
                         $router.replace({
                             path:'/login'
