@@ -36,13 +36,18 @@ axios.interceptors.response.use(
         if (error.response) {
             switch (error.response.status) {
                 case 401:
-                    console.log('.logout')
-                    // 401 清除token信息并跳转到登录页面
+                    // 401 清除token信息
                     store.commit(types.LOGOUT);
-                    router.replace({
-                        path: 'login',
-                        query: {redirect: router.currentRoute.fullPath}
-                    })
+                    // 登录页面提示登录失败，其他页面跳转到登录页面
+                    if($router._currentRoute.path === '/login'){
+                        $toast.show('登录失败，请检查用户名密码');
+                        return;
+                    }else{
+                        // TODO 传入当前页面的路由，进行跳转
+                        $router.replace({
+                            path:'/login'
+                        })
+                    }
             }
         }
         // console.log(JSON.stringify(error));//console : Error: Request failed with status code 402

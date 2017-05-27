@@ -26,7 +26,7 @@
             }
         },
         methods:{
-            login:function () {
+            login () {
                 this.axios({
                     method: 'post',
                     url: this.GLOBAL.rest.login,

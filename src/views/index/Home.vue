@@ -29,7 +29,10 @@
         },
         methods: {
             back() {
-                $router.back({path: '/home'})
+                console.log($router);
+                $router.replace({
+                    path: '/login'
+                })
             }
         }
     }
